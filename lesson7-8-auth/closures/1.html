@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const User = function (name, birthday) {
+        this.birthday = birthday;
+        this.getName = function () {
+          return name;
+        };
+        this.setName = function (newName) {
+          if (typeof newName === "string" && newName.length > 1) {
+            return (name = newName);
+          }
+          throw new Error("Invalid data");
+        };
+      };
+
+      const user = new User("Vika", "15.02.1995");
+      console.log(user);
+      //   user.birthday = "Хрен знает когда";
+      console.log(user.name);
+      console.log(user.getName());
+      user.setName("Красивая Вика");
+      console.log(user.getName());
+    </script>
+  </body>
+</html>

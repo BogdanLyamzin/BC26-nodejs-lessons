@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const step = +prompt("Введите шаг");
+      const createConverter = (currency) => {
+        const converterFunction = (value) => {
+          return value / currency;
+        };
+      };
+
+      const convertToUSD = createConverter(27.6);
+      const sallaryUSD = convertToUSD(10000);
+
+      const convertToEuro = createConverter(33.3);
+      const sallaryEuro = convertToEuro(10000);
+
+      const createCounter = (start, step) => {
+        const counterFunction = () => {
+          start += step;
+          return start;
+        };
+        return counterFunction;
+      };
+
+      const firstCounter = createCounter(0, 2);
+      console.log(firstCounter());
+      console.log(firstCounter());
+      /*
+        start = 0;
+        step = 2;
+        const counterFunction = ()=>{
+            start += 2;
+            return start;
+        };        
+        */
+      const secondCounter = createCounter(5, 10);
+      console.log(secondCounter());
+      console.log(secondCounter());
+      /*
+        start = 5;
+        step = 10;
+        const counterFunction = ()=>{
+            start += 10;
+            return start;
+        };        
+        */
+    </script>
+  </body>
+</html>
