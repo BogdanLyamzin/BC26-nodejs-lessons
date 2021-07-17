@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" id="chat-form">
+        <input type="text" name="message" placeholder="Введите сообщение" require="">
+        <button type="submit">Отправить</button>
+    </form>
+     <div id="chat" class="chat">
+         <!-- <p class="chat-start-message">Добро пожаловать в чат</p>
+         <p class="chat-your-message">Всем привет!</p>
+         <p class="chat-user-message">Привет-привет!</p> -->
+     </div>
+
+     <script>
+         const ws = new WebSocket("ws://localhost:5000");
+
+         const chat = document.getElementById("chat");
+         const chatForm = document.getElementById("chat-form");
+
+         ws.onopen = ()=>{
+            chat.insertAdjacentHTML("afterbegin", `<p class="chat-start-message">Добро пожаловать в чат</p>`)
+        };
+
+        ws.onmessage = ({data}) => {
+            chat.insertAdjacentHTML("beforeend", `<p class="chat-user-message">${data}</p>`)
+        };
+
+        chatForm.addEventListener("submit", function(e){
+            e.preventDefault();
+            const message = this.querySelector("[name=message]").value;
+            ws.send(message);
+            chat.insertAdjacentHTML("beforeend", `<p class="chat-your-message">${message}</p>`)
+            this.reset();
+        })
+
+
+     </script>
+</body>
+</html>

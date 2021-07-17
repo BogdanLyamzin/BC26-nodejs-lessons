@@ -1,0 +1,29 @@
+.chat {
+    width: 220px;
+    padding: 10px;
+}
+
+.chat-start-message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.chat-your-message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: right;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: lightblue;
+}
+
+.chat-user-message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
